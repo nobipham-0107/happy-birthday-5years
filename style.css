@@ -1,0 +1,64 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FFF0F5;
+}
+
+.font-love { font-family: 'Dancing Script', cursive; }
+
+/* Hiệu ứng Kính mờ (Glassmorphism) */
+.card-glass {
+    background: rgba(255, 255, 255, 0.6); /* Tăng độ đậm của màu trắng một chút */
+    backdrop-filter: blur(15px); /* Tăng độ mờ hậu cảnh */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(255, 182, 193, 0.2); /* Đổi shadow sang tông hồng nhẹ */
+}
+
+/* Hộp quà bay */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+    display: inline-block;
+}
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Tim bay lơ lửng */
+.heart-particle {
+    position: absolute;
+    background-color: rgba(255, 182, 193, 0.7);
+    transform: rotate(-45deg);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+    animation: flyUp linear infinite;
+}
+
+.heart-particle::before, .heart-particle::after {
+    content: ''; position: absolute; width: 100%; height: 100%;
+    background-color: inherit; border-radius: 50%;
+}
+.heart-particle::before { top: -50%; left: 0; }
+.heart-particle::after { top: 0; left: 50%; }
+
+@keyframes flyUp {
+    0% { transform: translateY(0) rotate(-45deg); opacity: 0; }
+    10%, 90% { opacity: 0.8; }
+    100% { transform: translateY(-120vh) rotate(-45deg); opacity: 0; }
+}
+
+#password-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#password-input::placeholder {
+    color: #f9a8d4;
+    font-style: italic;
+}
